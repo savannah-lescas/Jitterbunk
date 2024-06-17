@@ -9,22 +9,18 @@
     }
 </style>
 <body>
-<h1 style="text-align:center;">All Bunks</h1>
 
     <div class="content">
-        <div class="user-list">
-            <div class="bunk-actions">
                 <h2><a href="{% url 'submit_bunk' %}">Bunk Someone!</a></h2>
-            </div>
+            <br>
             <h2>Pick a User to See Bunks For:</h2>
             <ul>
                 {% for user in users %}
                     <li><a href="{% url 'user_detail' username=user.username %}">{{ user.username }}</a></li>
                 {% endfor %}
             </ul>
-            </div>
-        </div>
         <div class="bunk-table">
+            <h1 style="text-align:center;">All Bunks</h1>
             {% if all_bunks %}
             <table style="width:100%">
                 <tr>

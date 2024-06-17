@@ -8,7 +8,7 @@ from .models import User, Bunk
 logger = logging.getLogger(__name__)
 
 def index(request):
-    all_bunks = Bunk.objects.order_by('-time')
+    all_bunks = Bunk.objects.order_by('time')
     users = User.objects.all()
     context = {
         'all_bunks': all_bunks,

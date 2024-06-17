@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>Create a Bunk</h1>
+    <a href="/jitterbunk/">All bunks</a>
     <form method="post" action="{% url 'submit_bunk' %}">
         {% csrf_token %}
         {{ form.as_p }}
