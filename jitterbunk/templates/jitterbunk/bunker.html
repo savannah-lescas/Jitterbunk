@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Bunk</title>
+</head>
+<body>
+    <h1>Create a Bunk</h1>
+    <form method="post" action="{% url 'submit_bunk' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Bunk!</button>
+    </form>
+</body>
+</html>

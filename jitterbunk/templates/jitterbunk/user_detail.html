@@ -1,0 +1,26 @@
+<h1>{{user.username}}'s Bunks</h1>
+{% if user_bunks %}
+<style>
+    table, th, td{
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+    <a href="/jitterbunk/">All bunks</a>
+
+    <table style="width:100%">
+        <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Time</th>
+        {% for bunk in user_bunks %}
+            <tr> 
+                <td>{{ bunk.from_user }} </td>
+                <td>{{ bunk.to_user }} </td>
+                <td>{{ bunk.time }} </td>
+            </tr> 
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No bunks.</p>
+{% endif %}

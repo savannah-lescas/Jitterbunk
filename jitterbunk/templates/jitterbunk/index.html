@@ -1,0 +1,47 @@
+<style>
+    table, th, td {
+        border:1px solid black;
+        text-align: center;
+    }
+    
+    .user-list {
+        display: flex;
+    }
+</style>
+<body>
+<h1 style="text-align:center;">All Bunks</h1>
+
+    <div class="content">
+        <div class="user-list">
+            <div class="bunk-actions">
+                <h2><a href="{% url 'submit_bunk' %}">Bunk Someone!</a></h2>
+            </div>
+            <h2>Pick a User to See Bunks For:</h2>
+            <ul>
+                {% for user in users %}
+                    <li><a href="{% url 'user_detail' username=user.username %}">{{ user.username }}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+        <div class="bunk-table">
+            {% if all_bunks %}
+            <table style="width:100%">
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Time</th>
+                {% for bunk in all_bunks %}
+                    <tr> 
+                        <td>{{ bunk.from_user.username }}<br><img src = {{ bunk.from_user.photo }} width="100"/></td>
+                        <td>{{ bunk.to_user.username }} <br><img src = {{ bunk.to_user.photo }} width="100"/></td>
+                        <td>{{ bunk.time }} </td>
+                    </tr> 
+                {% endfor %}
+            </table>
+            {% else %}
+                <p>No bunks.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
